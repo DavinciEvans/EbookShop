@@ -1,0 +1,855 @@
+{
+	"info": {
+		"_postman_id": "b4a66142-5249-4d2e-b5e1-2361c47a8548",
+		"name": "EbookShop",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "books",
+			"item": [
+				{
+					"name": "http://127.0.0.1:8080/api/v1/book",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MDcyNjM4MDEsImlhdCI6MTYwNzIyMDYwMSwiaXNzIjoiRXNob3AiLCJ1aWQiOjF9.rF5tBcgtL2DwEbc77BpU2UiohIXA6TUBfsZKvTHAQJo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "Name",
+									"value": "Hello",
+									"type": "text"
+								},
+								{
+									"key": "Author",
+									"value": "Davinci",
+									"type": "text"
+								},
+								{
+									"key": "Price",
+									"value": "25.5",
+									"type": "text"
+								},
+								{
+									"key": "Content",
+									"value": "hello, world!",
+									"type": "text"
+								},
+								{
+									"key": "Category",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/api/v1/book",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"book"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://127.0.0.1:8080/api/v1/book?category=1&hot=1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8080/api/v1/book",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"book"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "3",
+									"disabled": true
+								},
+								{
+									"key": "category",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "127.0.0.1:8080/api/v1/book/11",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MDcyNzcxMjgsImlhdCI6MTYwNzIzMzkyOCwiaXNzIjoiRXNob3AiLCJ1aWQiOjF9.tPxr0w2aHD5Rtyeek2LQd82uVpNiOHYTNLTHF6IkccI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8080/api/v1/book/11",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"book",
+								"11"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "http://127.0.0.1:8080/api/v1/auth/1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "Username",
+									"value": "admin",
+									"type": "text"
+								},
+								{
+									"key": "Password",
+									"value": "123456",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/api/v1/auth/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://127.0.0.1:8080/api/v1/auth/2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "Username",
+									"value": "davinci",
+									"type": "text"
+								},
+								{
+									"key": "Password",
+									"value": "123456",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/api/v1/auth/2",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "127.0.0.1:8080/api/v1/auth/1",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MDcxODcxOTIsImlhdCI6MTYwNzE0Mzk5MiwiaXNzIjoiRXNob3AiLCJ1aWQiOjF9.J-z6uPdtHEDNWCuEHVW3OevYfJySQa5mXLPBxrKXMFM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "Username",
+									"value": "admin",
+									"type": "text"
+								},
+								{
+									"key": "Password",
+									"value": "123456",
+									"type": "text"
+								},
+								{
+									"key": "Email",
+									"value": "2333@example.com",
+									"type": "text"
+								},
+								{
+									"key": "Name",
+									"value": "Davinci",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "127.0.0.1:8080/api/v1/auth/1",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://127.0.0.1:8080/api/v1/auth",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "Username",
+									"value": "admin",
+									"type": "text"
+								},
+								{
+									"key": "Password",
+									"value": "123456",
+									"type": "text"
+								},
+								{
+									"key": "Name",
+									"value": "abcd",
+									"type": "text"
+								},
+								{
+									"key": "Email",
+									"value": "hahahaha@163.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/api/v1/auth/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "categories",
+			"item": [
+				{
+					"name": "127.0.0.1:8080/api/v1/categories",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MDcyMDc0MDYsImlhdCI6MTYwNzE2NDIwNiwiaXNzIjoiRXNob3AiLCJ1aWQiOjF9.7feV2eh7fsCqToCJuTaMZGtyQb2J8Gi9XH9N2qpN3ns",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "Name",
+									"value": "vegetables",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "127.0.0.1:8080/api/v1/categories/3",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"categories",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "127.0.0.1:8080/api/v1/categories/2",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MDcyMDc0MDYsImlhdCI6MTYwNzE2NDIwNiwiaXNzIjoiRXNob3AiLCJ1aWQiOjF9.7feV2eh7fsCqToCJuTaMZGtyQb2J8Gi9XH9N2qpN3ns",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "Name",
+									"value": "trigger",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "127.0.0.1:8080/api/v1/categories/2",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"categories",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "127.0.0.1:8080/api/v1/categories",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MDcyNjM4MDEsImlhdCI6MTYwNzIyMDYwMSwiaXNzIjoiRXNob3AiLCJ1aWQiOjF9.rF5tBcgtL2DwEbc77BpU2UiohIXA6TUBfsZKvTHAQJo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "Name",
+									"value": "unity",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "127.0.0.1:8080/api/v1/categories",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "127.0.0.1:8080/api/v1/categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8080/api/v1/categories",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "comments",
+			"item": [
+				{
+					"name": "127.0.0.1:8080/api/v1/comments",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MDcyNjM4MDEsImlhdCI6MTYwNzIyMDYwMSwiaXNzIjoiRXNob3AiLCJ1aWQiOjF9.rF5tBcgtL2DwEbc77BpU2UiohIXA6TUBfsZKvTHAQJo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8080/api/v1/comments/1",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"comments",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "127.0.0.1:8080/api/v1/comments",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MDcyNzA2NzMsImlhdCI6MTYwNzIyNzQ3MywiaXNzIjoiRXNob3AiLCJ1aWQiOjJ9.jWTJjBkPWLD9ldLvqPzhEI5BGUyK0gDroom0jeumDmE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "Content",
+									"value": "OHHHHH",
+									"type": "text"
+								},
+								{
+									"key": "Star",
+									"value": "8",
+									"type": "text"
+								},
+								{
+									"key": "BookID",
+									"value": "23",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "127.0.0.1:8080/api/v1/comments",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"comments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "127.0.0.1:8080/api/v1/comments/10",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MDcyNzA5MjIsImlhdCI6MTYwNzIyNzcyMiwiaXNzIjoiRXNob3AiLCJ1aWQiOjJ9.qQxSeCa5Es48qZniWrrn9Dn6M3w53dyNcdrhUKeBxVs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8080/api/v1/comments/10",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"comments",
+								"10"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "carts",
+			"item": [
+				{
+					"name": "127.0.0.1:8080/api/v1/carts",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MDcyNzcxMjgsImlhdCI6MTYwNzIzMzkyOCwiaXNzIjoiRXNob3AiLCJ1aWQiOjF9.tPxr0w2aHD5Rtyeek2LQd82uVpNiOHYTNLTHF6IkccI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8080/api/v1/carts",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"carts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "127.0.0.1:8080/api/v1/carts/25",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MDcyODAwNjIsImlhdCI6MTYwNzIzNjg2MiwiaXNzIjoiRXNob3AiLCJ1aWQiOjF9.lFtuZRA9A4AszUPJnZJ9IorCqf_3d377S58I5IUegvo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8080/api/v1/carts/25",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"carts",
+								"25"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "127.0.0.1:8080/api/v1/carts/25",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MDcyODAwNjIsImlhdCI6MTYwNzIzNjg2MiwiaXNzIjoiRXNob3AiLCJ1aWQiOjF9.lFtuZRA9A4AszUPJnZJ9IorCqf_3d377S58I5IUegvo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "BookID",
+									"value": "17",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "127.0.0.1:8080/api/v1/carts",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"carts"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "purcasedBooks",
+			"item": [
+				{
+					"name": "127.0.0.1:8080/api/v1/purchased",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MDcyODAwNjIsImlhdCI6MTYwNzIzNjg2MiwiaXNzIjoiRXNob3AiLCJ1aWQiOjF9.lFtuZRA9A4AszUPJnZJ9IorCqf_3d377S58I5IUegvo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8080/api/v1/purchased",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"purchased"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "127.0.0.1:8080/api/v1/purchased",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MDcyODAwNjIsImlhdCI6MTYwNzIzNjg2MiwiaXNzIjoiRXNob3AiLCJ1aWQiOjF9.lFtuZRA9A4AszUPJnZJ9IorCqf_3d377S58I5IUegvo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8080/api/v1/purchased/19",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"purchased",
+								"19"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "127.0.0.1:8080/api/v1/purchased",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MDcyODAwNjIsImlhdCI6MTYwNzIzNjg2MiwiaXNzIjoiRXNob3AiLCJ1aWQiOjF9.lFtuZRA9A4AszUPJnZJ9IorCqf_3d377S58I5IUegvo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8080/api/v1/purchased/72",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"purchased",
+								"72"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

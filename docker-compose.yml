@@ -1,0 +1,29 @@
+version: "3.7"
+
+services:
+  postgres:
+    image: "postgres:13-alpine"
+    restart: "always"
+    environment:
+      POSTGRES_PASSWORD: "007008"
+      POSTGRES_USER: "postgres"
+      PGDATA: "/var/lib/postgresql/data/pgdata"
+      TZ: "Asia/Shanghai"
+    ports:
+      - 5432:5432
+    volumes:
+      - "./init.sql:/docker-entrypoint-initdb.d/10-init.sql"
+  go:
+    build: .
+    restart: always
+    image: "golang:alpine"
+    ports:
+      - 8080:8080
+    depends_on:
+      - "postgres"
+    links:
+      - "postgres"
+    volumes:
+      - "./config.json:/build/config.json"
+      - "./logs/run.log:/build/logs/run.log"
+      - "./logs/db.log:/build/logs/db.log"
