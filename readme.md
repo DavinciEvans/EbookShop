@@ -23,6 +23,16 @@ docker-compose up -d
 
 API 的具体使用说明已放在 README 文件夹当中。同时还附有配套的 postman  示例文件，直接导入 postman 当中即可。
 
+### 获取新版本
+
+仅针对不熟悉 git 的同学使用：
+
+```shell
+cd /PATH/TO/EbookShop
+git fetch origin
+git pull origin
+```
+
 ## 设置
 
 配置文件为 `config.json`
