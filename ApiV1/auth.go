@@ -102,17 +102,10 @@ func ValidateAdmin() gin.HandlerFunc {
 	}
 }
 
-// /api/v1/auth/:id POST 用户登录，返回 JWT
+// /api/v1/auth POST 用户登录，返回 JWT
 func Login(c *gin.Context) {
 	var user User
 	var form userLoginForm
-
-	// 检查路由参数
-	id, err := strconv.Atoi(c.Param("id"))
-	if err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"status": http.StatusBadRequest, "msg": "Illegal primary key. It must be a number."})
-		return
-	}
 
 	// 检查表单
 	if err := c.ShouldBind(&form); err != nil {
@@ -121,7 +114,7 @@ func Login(c *gin.Context) {
 	}
 
 	// 查找用户
-	result := DB.Find(&user, id)
+	result := DB.Where("username = ?", form.Username).Find(&user)
 	if result.RowsAffected == 0 {
 		c.JSON(http.StatusBadRequest, gin.H{"status": http.StatusBadRequest, "msg": "Not exist Users id"})
 		return
@@ -131,18 +124,23 @@ func Login(c *gin.Context) {
 	pwdRight := user.ValidatePwdHash(form.Password)
 	if pwdRight && user.Username == form.Username {
 		// 生成 token
-		token, err := CreateToken([]byte(SecretKey), uint(id))
+		token, err := CreateToken([]byte(SecretKey), user.ID)
 		if err != nil {
 			c.JSON(http.StatusBadRequest, gin.H{
 				"status": http.StatusBadRequest, "msg": "Error", "Error": err.Error()})
 		}
-		c.JSON(http.StatusOK, gin.H{"status": http.StatusOK, "msg": "success", "token": token})
+		c.JSON(http.StatusOK, gin.H{
+			"status": http.StatusOK,
+			"msg":    "success",
+			"token":  token,
+			"userID": user.ID,
+		})
 	} else {
 		c.JSON(http.StatusUnauthorized, gin.H{"status": http.StatusUnauthorized, "msg": "The Password or Username is not right"})
 	}
 }
 
-// /api/v1/auth POST 用户注册
+// /api/v1/auth/newAuth POST 用户注册
 func Register(c *gin.Context) {
 	var form UserForm
 	var newUser User

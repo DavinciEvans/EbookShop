@@ -47,7 +47,7 @@ func main() {
 
 	v1Auth := v1.Group("/auth")
 	v1Auth.POST("/:id", ApiV1.Login)
-	v1Auth.POST("/", ApiV1.Register)
+	v1Auth.POST("/newAuth", ApiV1.Register)
 	v1Auth.PUT("/:id", ApiV1.ValidateLogin(), ApiV1.UpdateUserInfo)
 
 	v1Categories := v1.Group("/categories")

@@ -123,7 +123,7 @@ data 数据格式及含义：
 
 ## /Auth
 
-### POST /:id
+### POST /
 
 用户登录接口
 
@@ -138,7 +138,7 @@ data 数据格式及含义：
 
 `status` 和 `msg`
 
-### POST /
+### POST /newAuth
 
 用户注册接口
 

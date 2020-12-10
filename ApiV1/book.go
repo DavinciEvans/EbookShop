@@ -68,6 +68,8 @@ func GetAllBooks(c *gin.Context) {
 		Find(&books)
 
 	for _, book := range books {
+		category := Category{}
+		DB.Find(&category, book.CategoryID)
 		temp := map[string]interface{}{
 			"ID":        book.ID,
 			"Name":      book.Name,
@@ -75,7 +77,7 @@ func GetAllBooks(c *gin.Context) {
 			"Author":    book.Author,
 			"Star":      book.StarSum / book.PayNumber,
 			"PayNumber": book.PayNumber,
-			"Category":  book.CategoryID,
+			"Category":  category.Name,
 		}
 		returnJSON = append(returnJSON, temp)
 	}
@@ -93,14 +95,16 @@ func GetSingleBook(c *gin.Context) {
 	}
 	condition := []string{"ID", "Name", "Price", "Author", "Star", "PayNumber", "CategoryID"}
 	result := DB.Select(condition).Find(&book, id)
-	returnJSON["ID"] = book.ID
-	returnJSON["name"] = book.Name
-	returnJSON["Price"] = book.Price
-	returnJSON["Author"] = book.Author
-	returnJSON["Star"] = book.StarSum / book.PayNumber
-	returnJSON["PayNumber"] = book.PayNumber
-	returnJSON["Category"] = book.CategoryID
 	if result.RowsAffected != 0 {
+		category := Category{}
+		DB.Find(&category, book.CategoryID)
+		returnJSON["ID"] = book.ID
+		returnJSON["name"] = book.Name
+		returnJSON["Price"] = book.Price
+		returnJSON["Author"] = book.Author
+		returnJSON["Star"] = book.StarSum / book.PayNumber
+		returnJSON["PayNumber"] = book.PayNumber
+		returnJSON["Category"] = category.Name
 		c.JSON(http.StatusOK, gin.H{"status": http.StatusOK, "data": returnJSON})
 	} else {
 		c.JSON(http.StatusNotFound, gin.H{"status": http.StatusNotFound, "msg": "This book is not exist."})

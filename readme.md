@@ -31,3 +31,9 @@ API 的具体使用说明已放在 README 文件夹当中。同时还附有配�
 - 使用 Docker 部署，若需要修改数据库用户和密码，请在 `config.json`中修改完后进入 `docker-compose.yml` 一并修改。
 - 在本机上部署，请自行安装 Go 与 PostgreSQL，并在 PostgreSQL 当中创建名为 ebookshop 的数据库。之后还需修改配置文件中的 `Username` 与 `Password` 项，并将 `host` 项修改为 `localhost`。
 - `Forge` 项为是否需要载入随机数据。在第一次启动之后会修改为 False，如果需要重新载入，请手动修改为 True。
+
+## 更新日志
+
+- 12.10：
+  1. 修复了关于用户登录的 bug。现在用户登录统一使用 /auth POST 接口进行登录，注册用户统一使用 /auth/newAuth POST 接口进行登录
+  2. 修改书籍返回信息中的 category 为名称而不是 ID。
