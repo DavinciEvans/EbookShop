@@ -44,6 +44,9 @@ git pull origin
 
 ## 更新日志
 
+- 12.13:
+  1. 修复无法启动的bug
+
 - 12.10：
   1. 修复了关于用户登录的 bug。现在用户登录统一使用 /auth POST 接口进行登录，注册用户统一使用 /auth/newAuth POST 接口进行注册。
   2. 修改书籍返回信息中的 category 为名称而不是 ID。
