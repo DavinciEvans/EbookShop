@@ -27,3 +27,15 @@ services:
       - "./config.json:/build/config.json"
       - "./logs/run.log:/build/logs/run.log"
       - "./logs/db.log:/build/logs/db.log"
+  nginx:
+    restart: always
+    image: "nginx:alpine"
+    ports: 
+      - 80:80
+    volumes: 
+      - ./nginx/html:/usr/share/nginx
+      - ./nginx/conf:/etc/nginx
+    depends_on: 
+      - "go"
+    links:
+      - "go"

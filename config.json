@@ -1,13 +1,1 @@
-{
-  "Host": "postgres",
-  "User": "postgres",
-  "Password": "007008",
-  "Dbname": "ebookshop",
-  "Port": "5432",
-  "Sslmode": "disable",
-  "TimeZone": "Asia/Shanghai",
-  "Development": false,
-  "NetPort": 8080,
-  "SecretKey": "dev",
-  "Forge": false
-}
+{"Host":"postgres","User":"postgres","Password":"007008","Dbname":"ebookshop","Port":"5432","Sslmode":"disable","TimeZone":"Asia/Shanghai","Development":false,"NetPort":8080,"SecretKey":"dev","Forge":false}
