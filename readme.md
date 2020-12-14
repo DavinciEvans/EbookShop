@@ -44,8 +44,11 @@ git pull origin
 
 ## 更新日志
 
+- 12.14:
+  1. 增加了 Nginx，以后使用可以直接从 localhost 访问了。
+
 - 12.13:
-  1. 修复无法启动的bug
+  1. 修复无法启动的 bug
 
 - 12.10：
   1. 修复了关于用户登录的 bug。现在用户登录统一使用 /auth POST 接口进行登录，注册用户统一使用 /auth/newAuth POST 接口进行注册。
