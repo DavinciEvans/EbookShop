@@ -78,7 +78,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:8080/api/v1/book",
+							"raw": "http://127.0.0.1:8080/api/v1/book/1",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -90,7 +90,8 @@
 							"path": [
 								"api",
 								"v1",
-								"book"
+								"book",
+								"1"
 							],
 							"query": [
 								{
@@ -169,7 +170,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8080/api/v1/auth/1",
+							"raw": "http://127.0.0.1:8080/api/v1/auth",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -181,8 +182,7 @@
 							"path": [
 								"api",
 								"v1",
-								"auth",
-								"1"
+								"auth"
 							]
 						}
 					},
@@ -209,7 +209,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8080/api/v1/auth/2",
+							"raw": "http://127.0.0.1:8080/api/v1/auth",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -221,8 +221,7 @@
 							"path": [
 								"api",
 								"v1",
-								"auth",
-								"2"
+								"auth"
 							]
 						}
 					},
