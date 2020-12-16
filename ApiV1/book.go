@@ -93,7 +93,7 @@ func GetSingleBook(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{"status": http.StatusBadRequest, "msg": "Illegal primary key. It must be a number."})
 		return
 	}
-	condition := []string{"ID", "Name", "Price", "Author", "Star", "PayNumber", "CategoryID"}
+	condition := []string{"ID", "Name", "Price", "Author", "StarSum", "PayNumber", "CategoryID"}
 	result := DB.Select(condition).Find(&book, id)
 	if result.RowsAffected != 0 {
 		category := Category{}

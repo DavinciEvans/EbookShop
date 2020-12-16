@@ -46,7 +46,7 @@ func main() {
 	v1Book.DELETE("/:id", ApiV1.ValidateLogin(), ApiV1.ValidateAdmin(), ApiV1.DeleteBook)
 
 	v1Auth := v1.Group("/auth")
-	v1Auth.POST("/:id", ApiV1.Login)
+	v1Auth.POST("/", ApiV1.Login)
 	v1.POST("/newAuth", ApiV1.Register)
 	v1Auth.PUT("/:id", ApiV1.ValidateLogin(), ApiV1.UpdateUserInfo)
 
