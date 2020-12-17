@@ -17,6 +17,7 @@ import (
 // /api/v1/purchased/:id POST 购买某一本书
 func BuySingleBook(c *gin.Context) {
 	var claims *userClaims
+	var cart Cart
 	claims = c.MustGet("claims").(*userClaims)
 	loginId := claims.Uid
 
@@ -36,6 +37,9 @@ func BuySingleBook(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{"status": http.StatusBadRequest, "msg": "You have already had this book!"})
 		return
 	}
+
+	// 若有对应购物车，则删除
+	DB.Where("user_id = ? AND book_id = ?", loginId, uint(id)).Delete(&cart)
 	c.JSON(http.StatusOK, gin.H{"status": http.StatusOK, "msg": "OK!"})
 
 }
