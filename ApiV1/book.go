@@ -178,5 +178,9 @@ func DeleteBook(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{"status": http.StatusBadRequest, "msg": result.Error.Error()})
 		return
 	}
-	c.JSON(http.StatusOK, gin.H{"status": "OK!"})
+	if result.RowsAffected != 0 {
+		c.JSON(http.StatusOK, gin.H{"status": http.StatusOK, "msg": "OK!"})
+	} else {
+		c.JSON(http.StatusBadRequest, gin.H{"status": http.StatusBadRequest, "msg": "This book not exist."})
+	}
 }
