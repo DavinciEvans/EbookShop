@@ -44,7 +44,6 @@ func BuySingleBook(c *gin.Context) {
 func GetAllPurchasedBooks(c *gin.Context) {
 	var claims *userClaims
 	var purchasedBook []PurchasedBook
-	var book Book
 	var returnJSON []map[string]interface{}
 	claims = c.MustGet("claims").(*userClaims)
 	loginId := claims.Uid
@@ -52,6 +51,7 @@ func GetAllPurchasedBooks(c *gin.Context) {
 	DB.Where("user_id = ?", loginId).Find(&purchasedBook)
 
 	for _, info := range purchasedBook {
+		var book Book
 		bookID := info.BookID
 		DB.Find(&book, bookID)
 		temp := map[string]interface{}{
