@@ -90,7 +90,9 @@ func init() {
 
 	// 设置是否要初始化初始数据
 	if Config.Forge {
-		Config.Forge = false
+		if !Config.Development {
+			Config.Forge = false
+		}
 		newConfig, err := os.OpenFile("./config.json", os.O_WRONLY|os.O_TRUNC, 0755)
 		if err != nil {
 			fmt.Println(err.Error())

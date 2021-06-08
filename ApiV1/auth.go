@@ -168,6 +168,32 @@ func Register(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"status": http.StatusOK, "msg": "success"})
 }
 
+// /api/v1/auth GET 获取用户数据，只有用户自己本人可以获取
+func GetUserInfo(c *gin.Context) {
+	var user User
+
+	// 获取登录信息
+	var claims *userClaims
+	claims = c.MustGet("claims").(*userClaims)
+	id := claims.Uid
+
+	// 查找用户
+	result := DB.Find(&user, id)
+	if result.RowsAffected == 0 {
+		c.JSON(http.StatusBadRequest, gin.H{"status": http.StatusBadRequest, "msg": "Not exist Users id"})
+		return
+	}
+
+	// 返回表单
+	returnJSON := make(map[string]interface{})
+	returnJSON["ID"] = user.ID
+	returnJSON["Mail"] = user.Mail
+	returnJSON["Username"] = user.Username
+	returnJSON["Name"] = user.Name
+
+	c.JSON(http.StatusOK, gin.H{"status": http.StatusOK, "msg": "success", "data": returnJSON})
+}
+
 // /api/v1/auth/:id PUT 用户数据更新，尽管表单需要提交Username，但是Username是无法修改的，做前端的时候要注意设置成disabled
 func UpdateUserInfo(c *gin.Context) {
 	var form UserForm
