@@ -125,7 +125,7 @@ func PostNewBook(c *gin.Context) {
 		Price:      form.Price,
 		Content:    form.Content,
 		StarSum:    0,
-		PayNumber:  0,
+		PayNumber:  1,
 		CategoryID: form.Category,
 	}
 	result := DB.Create(&newBook)
